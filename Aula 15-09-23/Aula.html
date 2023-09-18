@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <h2>{{subtitulo}}</h2>
+        <p>2+3={{soma(2,3)}}</p>
+        <p>A soma entre 4 e 7 é {{soma(4,7)}}</p>
+        <p>Número:{{count}}</p>
+        <button @click="contador">Soma+1</button>
+        <p>{{parImpar(count)}}</p>
+    </div>
+</body>
+</html>
+
+<script>
+    const { createApp } = Vue;
+    createApp ({  
+        data() {
+            return{
+                titulo:"Olá Vue!",
+                subtitulo:  "Estou aprendendo o Vue!",
+                count:0
+            }
+        },
+        methods: {
+            soma:(num1,num2)=>{
+                return num1+num2
+            },
+            contador: function(){
+                this.count++
+            },
+            parImpar: function(num){
+                return num % 2 == 0 ? "Par":"Impar"
+            }
+        }
+    }).mount('#app')
+</script>
